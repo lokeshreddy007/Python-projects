@@ -9,14 +9,17 @@ newMessage = ''
 message = input('pls enter a message')
 
 for char in message:
-    position = alphabet.find(char)
-    newPosition = (position + key) % 26
-    newChar = alphabet[newPosition]
-    newMessage += newChar
+    if char in alphabet:
+
+        position = alphabet.find(char)
+        newPosition = (position + key) % 26
+        newChar = alphabet[newPosition]
+        newMessage += newChar
+    else:
+        newMessage += char
+
 
 print('your new message is ', newMessage)
-
-file=open("encryptdata.txt",'a')
+file=open("encryptdata.txt",'w')
 file.write(newMessage)
-
 print(newMessage)
