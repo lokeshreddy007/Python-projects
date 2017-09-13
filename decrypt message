@@ -1,0 +1,21 @@
+#this is simple python program to decrypt the encrypted data but u should known the key when u encrypted 
+#decrypted data is stored as decryptdata.txt
+
+var = open('encryptdata.txt').read()
+print(var)
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+key = int(input('pls enter the key to decrypt the data:'))
+newMessage = ''
+for char in var:
+    if char in alphabet:
+        position = alphabet.find(char)
+        newPosition = (position - key) % 26
+        newChar = alphabet[newPosition]
+        newMessage += newChar
+    else:
+        newMessage += char
+
+print('your decrypted data is ', newMessage)
+file=open("decryptdata.txt",'w')
+file.write(newMessage)
+print(newMessage)
