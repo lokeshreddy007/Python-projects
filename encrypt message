@@ -1,0 +1,22 @@
+#this is simple python program that encrypt the data u enter and store the encrypted data in text file
+
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+key = int(input('enter the key:'))  #enter the number,it changes the char position in alphatebet by multiplying and change the oder
+
+newMessage = ''
+
+message = input('pls enter a message')
+
+for char in message:
+    position = alphabet.find(char)
+    newPosition = (position + key) % 26
+    newChar = alphabet[newPosition]
+    newMessage += newChar
+
+print('your new message is ', newMessage)
+
+file=open("encryptdata.txt",'a')
+file.write(newMessage)
+
+print(newMessage)
