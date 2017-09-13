@@ -1,4 +1,5 @@
 #this is simple python program that encrypt the data u enter and store the encrypted data in text file
+#which could'nt understand by humans.to decrypt the encrypted data  u should use key that u set.
 
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
