@@ -1,0 +1,25 @@
+import requests
+from bs4 import BeautifulSoup
+book = (input("enter the book u want :"))
+page = 1
+num = 1
+baseurl = "http://www.ebook777.com/page/"
+while page <6:
+    url = baseurl + str(page) + "/?s=" + book
+    print(url)
+    html = requests.get(url).text
+    html_soup = BeautifulSoup(html,'html.parser')
+    file_path = 'book.txt'
+    with open(file_path, "a") as textfile:
+        list = html_soup.findAll('article', attrs={'class':'clearfix'})
+
+        link = html_soup.findAll('a', attrs={'class':'title'})
+        for bookname in html_soup.findAll('a', attrs={'class':'title'}):
+           
+            print(num ,bookname.text)
+            print('\n')
+            textfile.write(bookname.text)
+            print('\n')
+            num +=1
+    page +=1
+        
